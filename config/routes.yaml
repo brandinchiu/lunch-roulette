@@ -1,0 +1,34 @@
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+    methods: [ GET ]
+
+api_add_item:
+    path: /api/add_item
+    controller: App\Controller\ApiController:addItem
+    methods: [ POST, OPTIONS ]
+
+api_remove_item:
+    path: /api/remove_item
+    controller: App\Controller\ApiController:removeItem
+    methods: [ POST, OPTIONS ]
+
+api_roll:
+    path: /api/reroll
+    controller: App\Controller\ApiController:reroll
+    methods: [ POST, OPTIONS ]
+
+api_options:
+    path: /api/options
+    controller: App\Controller\ApiController:options
+    methods: [ POST, OPTIONS ]
+
+api_tags:
+    path: /api/tags
+    controller: App\Controller\ApiController:tags
+    methods: [ POST, OPTIONS ]
+
+api_add_tag:
+    path: /api/add_tag
+    controller: App\Controller\ApiController:addTag
+    methods: [ POST, OPTIONS ]

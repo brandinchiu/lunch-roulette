@@ -1,0 +1,46 @@
+App\Entity\LunchOptionTag:
+    type: entity
+    table: lunch_option_tag
+    indexes:
+        fkey_lunch_option_tag_lunch_option_id_idx:
+            columns:
+                - lunch_option_id
+        fkey_lunch_option_tag_tag_id_idx:
+            columns:
+                - tag_id
+    uniqueConstraints:
+        lunch_option_tag_lunch_option_tag_unq:
+            columns:
+                - lunch_option_id
+                - tag_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        lunchOption:
+            targetEntity: LunchOption
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                lunch_option_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        tag:
+            targetEntity: Tag
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                tag_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

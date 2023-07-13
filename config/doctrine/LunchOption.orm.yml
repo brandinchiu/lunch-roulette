@@ -1,0 +1,53 @@
+App\Entity\LunchOption:
+    type: entity
+    repositoryClass: App\Repository\LunchOptionRepository
+    table: lunch_option
+    uniqueConstraints:
+        lunch_option_name_unq:
+            columns:
+                - name
+        slack_name_UNIQUE:
+            columns:
+                - slack_name
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        url:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        slackId:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: slack_id
+        slackName:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: slack_name
+        dateCreated:
+            type: datetime
+            nullable: false
+            column: date_created
+    lifecycleCallbacks:
+        prePersist: [ setDefaultDateCreated ]

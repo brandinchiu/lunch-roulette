@@ -1,0 +1,1 @@
+php bin/console doctrine:mapping:import 'App\Entity' yml --path=config/doctrine
